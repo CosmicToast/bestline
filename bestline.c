@@ -48,6 +48,7 @@
 │   - Remove ISIG→^C→EAGAIN hack and use ephemeral handlers                    │
 │   - Support running on Windows in MinTTY or CMD.EXE on Win10+                │
 │   - Support diacratics, русский, Ελληνικά, 漢字, 仮名, 한글                  │
+│   - Allow the end-user to set a shared history file location                 │
 │                                                                              │
 │ SHORTCUTS                                                                    │
 │                                                                              │

@@ -26,8 +26,9 @@ $ ls -hal bestline_example
 
 # Example
 
-This example will save history to `~/.foo_history`. It's 50kb when
-statically linked with Cosmopolitan Libc.
+This example will save history to `~/.foo_history`, unless
+`BESTLINE_HISTORY_DIR` is set. It's 50kb when statically linked with
+Cosmopolitan Libc.
 
 ```c
 #include <stdio.h>
@@ -124,6 +125,7 @@ Here's what we've changed compared to
 - Remove ISIG→^C→EAGAIN hack and catch signals properly
 - Support running on Windows in MinTTY or CMD.EXE on Win10+
 - Support diacritics, русский, Ελληνικά, 漢字, 仮名, 한글
+- Allow the end-user to set a shared history file location
 
 ## Readability
 
