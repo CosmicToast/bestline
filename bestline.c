@@ -3491,19 +3491,22 @@ char *bestlineWithHistory(const char *prompt, const char *prog) {
         if (strchr(prog, '/') || strchr(prog, '.')) {
             abAppends(&path, prog);
         } else {
-            b = "";
-            if (!(a = getenv("HOME"))) {
-                if (!(a = getenv("HOMEDRIVE")) ||
-                    !(b = getenv("HOMEPATH"))) {
-                    a = "";
+            b = 0;
+            if (!(a = getenv("BESTLINE_HISTORY_DIR"))) {
+                b = "";
+                if (!(a = getenv("HOME"))) {
+                    if (!(a = getenv("HOMEDRIVE")) ||
+                        !(b = getenv("HOMEPATH"))) {
+                        a = "";
+                    }
                 }
             }
             if (*a) {
                 abAppends(&path, a);
-                abAppends(&path, b);
+                if (b) abAppends(&path, b);
                 abAppendw(&path, '/');
             }
-            abAppendw(&path, '.');
+            if (b) abAppendw(&path, '.');
             abAppends(&path, prog);
             abAppends(&path, "_history");
         }
